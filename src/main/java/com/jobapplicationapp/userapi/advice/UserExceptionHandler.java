@@ -14,7 +14,7 @@ public class UserExceptionHandler {
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(UserNotFoundException.class)
-    public Map<String, String> handleBusinessException(UserNotFoundException ex) {
+    public Map<String, String> handleUserNotFound(UserNotFoundException ex) {
         Map<String, String> errorMap = new HashMap<>();
         errorMap.put("errorMessage", ex.getMessage());
         return errorMap;
