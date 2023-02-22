@@ -39,7 +39,7 @@ public class UserService {
         User user = this.userRepository.findFirstByEmail(request.getEmail());
 
         if (user != null) {
-            if (user.getEmail() != request.getEmail()) {
+            if (!user.getPassword().equals(request.getPassword())) {
                 throw new UserNotFoundException("Email and Password does not match, please re-check the information");
             } else {
                 return UserResponse.builder()
