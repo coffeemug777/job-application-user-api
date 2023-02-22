@@ -2,6 +2,7 @@ package com.jobapplicationapp.userapi.controller;
 
 import com.jobapplicationapp.userapi.dto.UserRequest;
 import com.jobapplicationapp.userapi.dto.UserResponse;
+import com.jobapplicationapp.userapi.exception.UserNotFoundException;
 import com.jobapplicationapp.userapi.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -24,7 +25,7 @@ public class UserController {
 
     @PostMapping("login")
     @ResponseStatus(HttpStatus.OK)
-    public UserResponse login(@RequestBody UserRequest request) {
+    public UserResponse login(@RequestBody UserRequest request) throws UserNotFoundException {
         return this.userService.login(request);
     }
 }
