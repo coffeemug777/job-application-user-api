@@ -1,6 +1,7 @@
 package com.jobapplicationapp.userapi.controller;
 
 import com.jobapplicationapp.userapi.dto.UserRequest;
+import com.jobapplicationapp.userapi.dto.UserResponse;
 import com.jobapplicationapp.userapi.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -22,7 +23,8 @@ public class UserController {
     }
 
     @PostMapping("login")
-    public void login(@RequestBody UserRequest request) {
-
+    @ResponseStatus(HttpStatus.OK)
+    public UserResponse login(@RequestBody UserRequest request) {
+        return this.userService.login(request);
     }
 }

@@ -1,6 +1,7 @@
 package com.jobapplicationapp.userapi.service;
 
 import com.jobapplicationapp.userapi.dto.UserRequest;
+import com.jobapplicationapp.userapi.dto.UserResponse;
 import com.jobapplicationapp.userapi.model.User;
 import com.jobapplicationapp.userapi.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -33,7 +34,11 @@ public class UserService {
         return users.size() > 0;
     }
 
-    public void login(UserRequest request) {
-
+    public UserResponse login(UserRequest request) {
+        User user = this.userRepository.findFirstByEmail(request.getEmail());
+        return UserResponse.builder()
+                .email(user.getEmail())
+                .password(user.getPassword())
+                .build();
     }
 }
