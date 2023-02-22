@@ -1,4 +1,4 @@
-package com.jobapplicationapp.userapi.controller;
+package com.jobapplicationapp.userapi.advice;
 
 import com.jobapplicationapp.userapi.exception.UserNotFoundException;
 import org.springframework.http.HttpStatus;
