@@ -4,17 +4,17 @@ import com.jobapplicationapp.userapi.dto.UserRequest;
 import com.jobapplicationapp.userapi.dto.UserResponse;
 import com.jobapplicationapp.userapi.exception.UserNotFoundException;
 import com.jobapplicationapp.userapi.service.UserService;
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequiredArgsConstructor
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 @RequestMapping("/api/user/")
 public class UserController {
 
-    private final UserService userService;
+    @Autowired
+    private UserService userService;
 
     @PostMapping("register")
     @ResponseStatus(HttpStatus.CREATED)
